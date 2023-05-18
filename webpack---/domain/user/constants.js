@@ -1,0 +1,1 @@
+export const RESENDING_CODE_DELAY_IN_SECONDS = 60

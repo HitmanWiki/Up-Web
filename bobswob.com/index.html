@@ -1,0 +1,289 @@
+<!doctype html>
+<html translate="no">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>BobSwap</title>
+    <meta name="description" content="Swap some BOB" />
+    <meta property="og:url" content="https://bobswob.com/" />
+    <link rel="shortcut icon" type="image/png" href="https://explainthisbob.com/wp-content/uploads/2023/04/bob-1024x1024.png" />
+    <link rel="apple-touch-icon" sizes="192x192" href="https://explainthisbob.com/wp-content/uploads/2023/04/bob-1024x1024.png" />
+    <link rel="apple-touch-icon" sizes="512x512" href="https://explainthisbob.com/wp-content/uploads/2023/04/bob-1024x1024.png" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="fortmatic-site-verification" content="j93LgcVZk79qcgyo" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <link rel="manifest" href="./manifest.json" />
+    <link rel="preconnect" href="https://www.google-analytics.com/" />
+    <link rel="preload" href="./fonts/Inter-roman.var.woff2" as="font" type="font/woff2" crossorigin/>
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CPoppins%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CWellfleet%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&#038;display=auto&#038;ver=6.0"
+        rel="stylesheet" />
+    <style>
+        * {
+            font-family: Poppins, sans-serif;
+            box-sizing: border-box
+        }
+
+        @supports (font-variation-settings:normal) {
+            * {
+                font-family: Poppins, sans-serif
+            }
+        }
+
+        body,
+        html {
+            margin: 0;
+            padding: 0
+        }
+
+        button {
+            user-select: none
+        }
+
+        html {
+            font-size: 16px;
+            font-variant: none;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            -webkit-tap-highlight-color: transparent;
+            font-feature-settings: 'ss01' on, 'ss02' on, 'cv01' on, 'cv03' on
+        }
+
+        #background-radial-gradient {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            pointer-events: none;
+            width: 200vw;
+            height: 200vh;
+            transform: translate(-50vw, -100vh);
+            z-index: -1
+        }
+
+        html {
+            min-height: 100%
+        }
+
+        @media (prefers-color-scheme:dark) {
+            html {
+                background-color: #212429
+            }
+        }
+
+        @media (prefers-color-scheme:light) {
+            html {
+                background-color: #f7f8fa
+            }
+        }
+    </style>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-V0S5W99RRK"></script>
+    <script>
+        function gtag() {
+            dataLayer.push(arguments)
+        }
+        window.dataLayer = window.dataLayer || [], gtag("js", new Date), gtag("config", "G-V0S5W99RRK")
+    </script>
+    <link href="./static/css/34.27af8858.chunk.css" rel="stylesheet">
+</head>
+
+<body><noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root">
+        <div>&emsp;</div>
+    </div>
+    <div id="background-radial-gradient"></div>
+    <script>
+        ! function(e) {
+            function r(r) {
+                for (var n, o, f = r[0], d = r[1], u = r[2], b = 0, l = []; b < f.length; b++) o = f[b], Object.prototype.hasOwnProperty.call(a, o) && a[o] && l.push(a[o][0]), a[o] = 0;
+                for (n in d) Object.prototype.hasOwnProperty.call(d, n) && (e[n] = d[n]);
+                for (i && i(r); l.length;) l.shift()();
+                return c.push.apply(c, u || []), t()
+            }
+
+            function t() {
+                for (var e, r = 0; r < c.length; r++) {
+                    for (var t = c[r], n = !0, f = 1; f < t.length; f++) {
+                        var d = t[f];
+                        0 !== a[d] && (n = !1)
+                    }
+                    n && (c.splice(r--, 1), e = o(o.s = t[0]))
+                }
+                return e
+            }
+            var n = {},
+                a = {
+                    33: 0
+                },
+                c = [];
+
+            function o(r) {
+                if (n[r]) return n[r].exports;
+                var t = n[r] = {
+                    i: r,
+                    l: !1,
+                    exports: {}
+                };
+                return e[r].call(t.exports, t, t.exports, o), t.l = !0, t.exports
+            }
+            o.e = function(e) {
+                var r = [],
+                    t = a[e];
+                if (0 !== t)
+                    if (t) r.push(t[2]);
+                    else {
+                        var n = new Promise((function(r, n) {
+                            t = a[e] = [r, n]
+                        }));
+                        r.push(t[2] = n);
+                        var c, f = document.createElement("script");
+                        f.charset = "utf-8", f.timeout = 120, o.nc && f.setAttribute("nonce", o.nc), f.src = function(e) {
+                            return o.p + "static/js/" + ({}[e] || e) + "." + {
+                                0: "f22dbefd",
+                                1: "edb2501c",
+                                2: "d75d7038",
+                                3: "7557e666",
+                                4: "dae23102",
+                                5: "346c981d",
+                                6: "35e4b96f",
+                                7: "aedb5c7f",
+                                8: "7f364575",
+                                9: "c51fa79e",
+                                10: "c10121d7",
+                                11: "8b002718",
+                                12: "aa25630e",
+                                13: "4b7cb1b7",
+                                14: "82d0497d",
+                                15: "3bb6ff67",
+                                16: "a7d7b99f",
+                                17: "5eac28db",
+                                18: "a429031b",
+                                19: "14139538",
+                                20: "79371ab3",
+                                21: "8d1a0b8d",
+                                22: "10757e8a",
+                                23: "9b7896c3",
+                                24: "433eff22",
+                                25: "4a0b89ed",
+                                26: "74cc9ea6",
+                                27: "18c76c36",
+                                28: "cac8962a",
+                                29: "2b04da4a",
+                                30: "ac8dde34",
+                                31: "39f52c4d",
+                                35: "80e3983b",
+                                36: "69baf10b",
+                                37: "38d43b7a",
+                                38: "21aaeb31",
+                                39: "84e56ea3",
+                                40: "da98cf82",
+                                41: "18f14ac1",
+                                42: "d3e6bee8",
+                                43: "5125656d",
+                                44: "3b2f028a",
+                                45: "9b165b65",
+                                46: "d601096e",
+                                47: "c0715273",
+                                48: "50742047",
+                                49: "0e871b3f",
+                                50: "e383e188",
+                                51: "871f4f5c",
+                                52: "0542bf9a",
+                                53: "ffa08e32",
+                                54: "8248dc0e",
+                                55: "11757af8",
+                                56: "f0c296cd",
+                                57: "c265b7e9",
+                                58: "dcb07d36",
+                                59: "21c7d25e",
+                                60: "8096266c",
+                                61: "4cf99929",
+                                62: "02dc314d",
+                                63: "0f744e62",
+                                64: "27c16949",
+                                65: "78383144",
+                                66: "3b9e68ad",
+                                67: "527244de",
+                                68: "6dc2d626",
+                                69: "4a56aef7",
+                                70: "18e464db",
+                                71: "ea362f7d",
+                                72: "acb4793b",
+                                73: "dd5eedad",
+                                74: "67cd7138",
+                                75: "8e3f8560",
+                                76: "60a9a83c"
+                            }[e] + ".chunk.js"
+                        }(e);
+                        var d = new Error;
+                        c = function(r) {
+                            f.onerror = f.onload = null, clearTimeout(u);
+                            var t = a[e];
+                            if (0 !== t) {
+                                if (t) {
+                                    var n = r && ("load" === r.type ? "missing" : r.type),
+                                        c = r && r.target && r.target.src;
+                                    d.message = "Loading chunk " + e + " failed.\n(" + n + ": " + c + ")", d.name = "ChunkLoadError", d.type = n, d.request = c, t[1](d)
+                                }
+                                a[e] = void 0
+                            }
+                        };
+                        var u = setTimeout((function() {
+                            c({
+                                type: "timeout",
+                                target: f
+                            })
+                        }), 12e4);
+                        f.onerror = f.onload = c, document.head.appendChild(f)
+                    }
+                return Promise.all(r)
+            }, o.m = e, o.c = n, o.d = function(e, r, t) {
+                o.o(e, r) || Object.defineProperty(e, r, {
+                    enumerable: !0,
+                    get: t
+                })
+            }, o.r = function(e) {
+                "undefined" != typeof Symbol && Symbol.toStringTag && Object.defineProperty(e, Symbol.toStringTag, {
+                    value: "Module"
+                }), Object.defineProperty(e, "__esModule", {
+                    value: !0
+                })
+            }, o.t = function(e, r) {
+                if (1 & r && (e = o(e)), 8 & r) return e;
+                if (4 & r && "object" == typeof e && e && e.__esModule) return e;
+                var t = Object.create(null);
+                if (o.r(t), Object.defineProperty(t, "default", {
+                        enumerable: !0,
+                        value: e
+                    }), 2 & r && "string" != typeof e)
+                    for (var n in e) o.d(t, n, function(r) {
+                        return e[r]
+                    }.bind(null, n));
+                return t
+            }, o.n = function(e) {
+                var r = e && e.__esModule ? function() {
+                    return e.default
+                } : function() {
+                    return e
+                };
+                return o.d(r, "a", r), r
+            }, o.o = function(e, r) {
+                return Object.prototype.hasOwnProperty.call(e, r)
+            }, o.p = "./", o.oe = function(e) {
+                throw console.error(e), e
+            };
+            var f = this["webpackJsonp@uniswap/interface"] = this["webpackJsonp@uniswap/interface"] || [],
+                d = f.push.bind(f);
+            f.push = r, f = f.slice();
+            for (var u = 0; u < f.length; u++) r(f[u]);
+            var i = d;
+            t()
+        }([])
+    </script>
+    <script src="./static/js/34.1d7f00ac.chunk.js"></script>
+    <script src="./static/js/main.226ff836.chunk.js"></script>
+</body>
+
+</html>

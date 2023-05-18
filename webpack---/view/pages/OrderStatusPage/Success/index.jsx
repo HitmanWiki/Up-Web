@@ -1,0 +1,148 @@
+import { Fragment, h } from "preact"
+import { useContext, useContextSelector } from "use-context-selector"
+
+import { clearSearchParam } from "infrastructure/utils/url"
+import { useTranslate } from "infrastructure/hooks/useTransalte"
+
+import { PageIteratorContext } from "domain/application/PageIteratorContext"
+import { DirectionEnum } from "domain/application/enums/DirectionEnum"
+import { UserContext } from "domain/user/UserContext"
+import { userSelectors } from "domain/user/selectors"
+
+import { TopWithContent } from "view/uikit/common/TopWithContent"
+import { Icon } from "view/uikit/base/Icon"
+import { TopVariantEnum } from "view/uikit/common/Top/enums"
+import { Details } from "view/uikit/common/Details"
+import { CopiedValue } from "view/uikit/common/CopiedValue"
+import { displayWithCurrency } from "view/uikit/helpers/displayWithCurrency"
+import { ButtonVariantEnum } from "view/uikit/base/Button/enums"
+import { Button } from "view/uikit/base/Button"
+import { displayStatus } from "view/uikit/helpers/displayStatus"
+import { displayWithNetwork } from "view/uikit/helpers/displayWithNetwork"
+import { displayHash } from "view/uikit/helpers/displayHash"
+import { Tooltip } from "view/uikit/base/Tooltip"
+import { InfoIcon } from "view/uikit/icons/info"
+
+import * as S from "./styled"
+
+export const Success = ({ order }) => {
+  const login = useContextSelector(UserContext, userSelectors.login)
+  const { onInit } = useContext(PageIteratorContext)
+
+  const youGetLabel = useTranslate("pages.orderStatus.common.youGetLabel")
+  const orderIdLabel = useTranslate("pages.orderStatus.common.orderIdLabel")
+  const totalLabel = useTranslate("pages.orderStatus.common.totalLabel")
+  const title = useTranslate("pages.orderStatus.success.title")
+  const processingFeeLabel = useTranslate("common.processingFeeLabel")
+  const networkFeeLabel = useTranslate("common.networkFeeLabel")
+  const processingFeeTooltip = useTranslate("common.processingFeeTooltip")
+  const networkFeeTooltip = useTranslate("common.networkFeeTooltip")
+  const transactionHashLabel = useTranslate(
+    "pages.orderStatus.success.transactionHashLabel"
+  )
+  const bottomText = useTranslate("pages.orderStatus.failure.bottomText")
+  const buttonLabel = useTranslate("pages.orderStatus.common.button")
+  const buttonLabelTrade = useTranslate("pages.orderStatus.common.buttonTrade")
+
+  const cryptoWithCurrency =
+    order?.cryptoAmount && order?.cryptoSymbol
+      ? displayWithCurrency(order?.cryptoAmount, order?.cryptoSymbol, 8)
+      : null
+
+  const data = [
+    {
+      label: youGetLabel,
+      value: cryptoWithCurrency
+        ? displayWithNetwork(cryptoWithCurrency, order?.cryptoType)
+        : "-",
+    },
+    {
+      label: (
+        <Tooltip tipContent={processingFeeTooltip} isPortal>
+          <S.Label>
+            {processingFeeLabel}
+            <InfoIcon width={20} height={20} />
+          </S.Label>
+        </Tooltip>
+      ),
+      value: displayWithCurrency(order?.processingFee, order?.fiatCurrency),
+    },
+    {
+      label: (
+        <Tooltip tipContent={networkFeeTooltip} isPortal>
+          <S.Label>
+            {networkFeeLabel}
+            <InfoIcon width={20} height={20} />
+          </S.Label>
+        </Tooltip>
+      ),
+      value: displayWithCurrency(order?.networkFee, order?.fiatCurrency),
+    },
+    {
+      label: orderIdLabel,
+      value: order?.id,
+    },
+  ]
+
+  const hashes = order?.withdrawalTxIds &&
+    !!order.withdrawalTxIds.length && {
+      label: transactionHashLabel,
+      values: order?.withdrawalTxIds.reduce((acc, item) => {
+        acc.push(
+          <CopiedValue
+            key={item}
+            label={displayHash(item, 8)}
+            value={item}
+            maxWidth="100%"
+          />
+        )
+        return acc
+      }, [])
+    }
+
+  const total = {
+    label: totalLabel,
+    value: displayWithCurrency(order?.fiatAmount, order?.fiatCurrency, 2),
+  }
+
+  const handlerButton = () => {
+    clearSearchParam(["gtfOrderId", "gtfPaymentStatus"])
+
+    if (order.trade) {
+      window.open(order.trade.redirectUrl, "_self")
+    } else {
+      onInit(DirectionEnum.FiatToCrypto)
+    }
+  }
+
+  return (
+    <Fragment>
+      <div>
+        <TopWithContent
+          variant={TopVariantEnum.Success}
+          title={title}
+          description={displayStatus(order?.status)}
+          Icon={<Icon name="success" variant={TopVariantEnum.Success} />}
+        />
+
+        <S.DetailsWrapper>
+          <Details data={data} total={total} hashes={hashes} />
+        </S.DetailsWrapper>
+      </div>
+
+      <S.ButtonWrapper>
+        <Button
+          fullWidth
+          variant={ButtonVariantEnum.Primary}
+          onClick={handlerButton}
+        >
+          {order.trade ? buttonLabelTrade : buttonLabel}
+        </Button>
+      </S.ButtonWrapper>
+
+      <S.BottomWrapper>
+        {bottomText} <S.Email title={login}>{login}</S.Email>
+      </S.BottomWrapper>
+    </Fragment>
+  )
+}
